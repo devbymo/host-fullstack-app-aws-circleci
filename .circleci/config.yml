@@ -1,8 +1,6 @@
 version: 2.1
 orbs:
-  node:
-    docker:
-      - image: circleci/node:10.16.0
+  node: circleci/node:10.16.0
   eb: circleci/aws-elastic-beanstalk@2.0.0
   aws-cli: circleci/aws-cli@2.0.2
 jobs:
