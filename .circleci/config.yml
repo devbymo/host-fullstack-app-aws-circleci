@@ -6,10 +6,10 @@ orbs:
 jobs:
   build:
     docker:
-      - image: 'cimg/node:14.15'
+      - image: 'cimg/node:16.13.2'
     steps:
       - node/install:
-          node-version: '14.15'
+          node-version: '16.13.2'
       - checkout
       - aws-cli/setup
       - eb/setup
