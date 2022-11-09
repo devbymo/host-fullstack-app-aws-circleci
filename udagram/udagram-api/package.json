@@ -1,5 +1,5 @@
 {
-  "name": "Host Full-stack app (server)",
+  "name": "udagram-api",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -18,10 +18,10 @@
     "build": "npm run clean && tsc && npm run copy && cd www && npm run zip && cd ..",
     "build:wind": "npm run clean && tsc && npm run copy && cd www && npm run zip:wind && cd ..",
     "test": "jasmine",
-    "deploy": "sh ./bin/deploy.sh"
+    "deploy": "npm run build && eb list && eb use udagram-app-api-env && eb deploy udagram-app-api-env"
   },
   "keywords": [],
-  "author": "Gabriel Ruttner",
+  "author": "Mohamed Yasser",
   "license": "ISC",
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
