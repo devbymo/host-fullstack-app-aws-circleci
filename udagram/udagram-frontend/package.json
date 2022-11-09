@@ -1,23 +1,23 @@
 {
-  "name": "joe",
+  "name": "udagram-frontend",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build ",
-    "test": "ng test",
+    "build": "ng build",
+    "deploy": "npm install -f && npm run build && chmod +x bin/deploy.sh && bin/deploy.sh",
+    "test": "ng test --watch=false",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "deploy": "sh ./bin/deploy.sh"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
     "@angular/forms": "^8.2.14",
-    "@angular/http": "^7.2.2",
+    "@angular/http": "^7.2.16",
     "@angular/platform-browser": "^8.2.14",
     "@angular/platform-browser-dynamic": "^8.2.14",
     "@angular/router": "^8.2.14",

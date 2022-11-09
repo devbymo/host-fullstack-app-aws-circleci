@@ -1,6 +1,6 @@
 {
-  "name": "joe",
-  "version": "2.0.0",
+  "name": "Host Full-stack app (server)",
+  "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "engines": {
@@ -12,7 +12,11 @@
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "zip:wind": "powershell Compress-Archive . ./Archive.zip",
+    "zip": "zip -r Archive.zip .",
+    "copy": "cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json",
+    "build": "npm run clean && tsc && npm run copy && cd www && npm run zip && cd ..",
+    "build:wind": "npm run clean && tsc && npm run copy && cd www && npm run zip:wind && cd ..",
     "test": "jasmine",
     "deploy": "sh ./bin/deploy.sh"
   },
