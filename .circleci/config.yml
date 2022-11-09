@@ -35,6 +35,8 @@ workflows:
   build:
     jobs:
       - build:
+          # use node 14.17.0
+          node-version: '14.17.0'
           filters:
             branches:
               only: main
