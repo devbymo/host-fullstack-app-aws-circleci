@@ -1,6 +1,18 @@
 version: 2.1
 orbs:
-  node: circleci/node@5.0.2
+  # Use node version 10.16.0
+  node:
+    executors:
+      default:
+        docker:
+          - image: circleci/node:10.16.0
+    commands:
+      install:
+        steps:
+          - run: npm install
+      test:
+        steps:
+          - run: npm test
   eb: circleci/aws-elastic-beanstalk@2.0.0
   aws-cli: circleci/aws-cli@2.0.2
 jobs:
@@ -35,7 +47,6 @@ workflows:
   build:
     jobs:
       - build:
-          node-version: '14.17.0'
           filters:
             branches:
               only: main
