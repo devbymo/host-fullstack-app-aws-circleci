@@ -18,7 +18,8 @@
     "build": "npm run clean && tsc && npm run copy && cd www && npm run zip && cd ..",
     "build:wind": "npm run clean && tsc && npm run copy && cd www && npm run zip:wind && cd ..",
     "test": "jasmine",
-    "deploy": "npm run build && eb list && eb use udagram-app-api-env && eb deploy udagram-app-api-env"
+    "deploy": "eb list && eb use udagram-app-api-env && eb deploy udagram-app-api-env",
+    "deploy:local": "npm run build && npm run deploy"
   },
   "keywords": [],
   "author": "Mohamed Yasser",
