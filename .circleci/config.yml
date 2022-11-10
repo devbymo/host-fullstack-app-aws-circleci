@@ -8,27 +8,34 @@ jobs:
     docker:
       - image: 'cimg/node:16.13.2'
     steps:
+      # Checkout the code
       - node/install:
           node-version: '16.13.2'
       - checkout
       - aws-cli/setup
       - eb/setup
       - run:
+          # Install dependencies for the back-end
           name: Install Back-End Dependencies
           command: 'npm run backend:install'
       - run:
+          # Build the back-end
           name: Back-End Build
           command: 'npm run backend:build'
       - run:
+          # Install dependencies for the front-end
           name: Install Front-End Dependencies
           command: 'npm run frontend:install'
       - run:
+          # Build the front-end
           name: Front-End Build
           command: 'npm run frontend:build'
       - run:
+          # Deploy to AWS Elastic Beanstalk
           name: Deploy Backend
           command: 'npm run backend:deploy'
       - run:
+          # Deploy to AWS Elastic Beanstalk
           name: Deploy Frontend
           command: 'npm run frontend:deploy'
 workflows:
