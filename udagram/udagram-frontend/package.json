@@ -8,7 +8,7 @@
     "start": "ng serve",
     "build": "ng build",
     "deploy": "chmod +x bin/deploy.sh && bash bin/deploy.sh",
-    "deploy:local": "npm run build && npm run deploy",
+    "deploy:local": "npm run build && aws s3 cp --recursive ./www s3://mo-udagram/",
     "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
